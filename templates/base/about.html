@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>CLEX</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+     <!-- Topbar Start -->
+
+     <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">C</span>Clex</h1>
+            </a>
+        </div>
+        <div class="col-lg-5 col-6 text-left">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+
+            <a href="#log">
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="one"><i class="fas fa-user-circle text-primary"></i></button></a>
+
+            <div id="id01" class="modal">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"> <i class="fa fa-times" ></i></button>
+                <form class="modal-content animate frm" action="/action_page.php" method="post">
+
+
+                    <div class="container">
+                        <h1 class="name">Welcome</h1>
+
+                        <ul>
+                            <li><i class="fas fa-user"></i><input type="text" id="user" placeholder="Username"></li>
+                            <li> <i class="fas fa-lock"></i><input type="password" placeholder="Password"></li>
+                            <li style="display: inline-flex;">
+                                <input class="n3i" type="checkbox" checked="checked" name="remember" style=" margin: auto;margin-inline: 10px;">
+                                <p style="margin: auto;"> Remember me</p>
+                            </li>
+                            <li>
+
+                                <button type="submit" id="login-button" style="border: 1px solid;
+                                    padding: 5px;">Login</button>
+
+
+                            </li>
+                            <li>
+                                <a href="register.html">
+                                    <h3>or create an account</h3><i class="fas fa-angle-double-right" style="transform: translate(7px, 21px);font-size: smaller;"></i></a>
+                            </li>
+                            <li><span class="psw">Forgot <a href="#">password?</a></span></li>
+                        </ul>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            <a href="vendre.html" class="btn border">
+                <i class="fas fa-arrow-circle-down text-primary"></i>
+            </a>
+            <a href="cart.html" class="btn border">
+                <i class="fas fa-shopping-cart text-primary"></i>
+            </a>
+            <a href="favori.html" class="btn border">
+                <i class="fas fa-heart text-primary"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Topbar End -->
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">About us</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">About us</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- partial -->
+
+    <div style="display: flex; overflow: hidden; margin-inline: 40px;">
+
+        <div style="float: left;flex: 50%;margin-inline-end: 20px;">
+
+            <h2 data-text="what_is_CLEX" class="sp">what_is_CLEX</h2><br>
+            <p>CLEX est un site web créé en 2022 par un groupe d'étudiants de l'ESTIN, Notre site est à la fois économique, rentable ,écologique et bien sûr durable.
+            </p>
+            <p>
+                CLEX a combiné ingéniosité et protection de l’environnement en offrant la possibilité de faire profiter d’autres personnes de nos nombreux vêtements comme certaines pièces vintage qui pourront faire le bonheur d’autres personnes Notre site permet de mettre
+                en vente tous les articles a un prix défiant toute concurrence.
+            </p>
+
+        </div>
+        <div style="float: right;flex: 50%;" id="slideset1" class="text-center">
+
+            <div class="carousel-item active" style="height: 100%;">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="carousel-item active" style="height: 100%;">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item active" style="height: 100%;">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- Featured Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Produit de qualité</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Livraison rapide</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">Satisfait ou rembourssé</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured End -->
+    <h2 style="margin-left: 40px;margin-top: 30px;">Our creative team :</h2>
+
+    <!-- Vendor Start -->
+    <div >
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel vendor-carousel team">
+                    <div class="vendor-item border p-4 team_member">
+                        <img src="1.jpeg" class="fishes">
+                        <div class="fish">
+                            <div class="text">
+                                <p style="font-family: Didot serif; font-size: 17px;"> ISSAD CHIRAZ </p>
+                                <p style="color: #e09fb3;">front-end developper</p>
+                                <p> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div class=" text-center ">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="vendor-item border p-4 team_member">
+                        <img src="1.jpeg" class="fishes">
+                        <div class="fish">
+                            <div class="text">
+                                <p style="font-family: Didot serif; font-size: 17px;"> ISSAD CHIRAZ </p>
+                                <p style="color: #e09fb3;">front-end developper</p>
+                                <p> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div class=" text-center ">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vendor-item border p-4 team_member">
+                        <img src="1.jpeg" class="fishes">
+                        <div class="fish">
+                            <div class="text">
+                                <p style="font-family: Didot serif; font-size: 17px;"> ISSAD CHIRAZ </p>
+                                <p style="color: #e09fb3;">front-end developper</p>
+                                <p> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div class=" text-center ">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vendor-item border p-4 team_member">
+                        <img src="1.jpeg" class="fishes">
+                        <div class="fish">
+
+                            <div class="text">
+                                <p style="font-family: Didot serif; font-size: 17px;"> ISSAD CHIRAZ </p>
+                                <p style="color: #e09fb3;">front-end developper</p>
+                                <p> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div class=" text-center">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vendor-item border p-4 team_member">
+                        <img src="1.jpeg" class="fishes">
+                        <div class="fish">
+                            <div class="text">
+                                <p style="font-family: Didot serif; font-size: 17px;"> ISSAD CHIRAZ </p>
+                                <p style="color: #e09fb3;">front-end developper</p>
+                                <p> ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <div class=" text-center">
+                                    <div class="d-inline-flex align-items-center">
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a class="text-dark px-2" href="">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor End -->
+
+    
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5" id="log">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-7 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a href="" class="text-decoration-none">
+                    <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">C</span>Clex</h1>
+                </a>
+                <p>CLEX est un site web créé en 2022 par un groupe d'étudiants de l'ESTIN, Notre site est à la fois économique, rentable ,écologique et bien sûr durable.
+                </p>
+                <p>
+                    CLEX a combiné ingéniosité, innovation et protection de l’environnement en offrant la possibilité de faire profiter d’autres personnes de nos nombreux vêtements qui prennent une grande place dans nos armoires sans pour autant les porter. Ainsi ...certaines
+                    pièces vintage ou pensés démodés. ..pourront faire le bonheur d’autres personnes en dénichant des perles rares . Notre site permet de mettre en vente tous les articles a un prix défiant toute concurrence.
+
+                </p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Amizour,Béjaia</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>CLEX@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+034 00 90 67</p>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Acceuil</a>
+                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Notre magasin</a>
+                            <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Nous contacter</a>
+                            <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
+                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Clex</a>. All Rights Reserved. Designed by
+                    <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">Clex's team</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Vendor carousel
+        $('.vendor-carousel').owlCarousel({
+            loop: true,
+            margin: 29,
+            nav: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            smartSpeed: 1000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                768: {
+                    items: 2
+                },
+
+                1200: {
+                    items: 3
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

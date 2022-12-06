@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+    body{
+    background-color:white;
+    }
+    </style>
+
+</head>
+
+<body>
+    <form action="" id="facture">
+        <center style="margin-top: 30px; border:none;font-size:25px;">FACTURE</center>
+        <div id="infos">
+            <div class="information" style="font-size:12px ;">
+               <table class="table" style="border:none; margin-top:20px;" >
+
+                   <tbody>
+                   <tr style="margin:none;">
+                       <td>some random id</td>
+                       <td>some random info</td>
+                   </tr>
+                   <tr style="margin:none;">
+                       <td>some random id</td>
+                       <td>some random info</td>
+                   </tr>
+                   <tr style="margin:none;">
+                       <td>some random id</td>
+                       <td>some random info</td>
+                   </tr>
+                   </tbody>
+               </table>
+            </div>
+        </div>
+        <table class="table table-bordered " style="margin-top:20px;" >
+            <thead class="thead-dark">
+                <tr>
+                    <th>vendeur</th>
+                    <th>photo</th>
+                    <th>nom produit</th>
+                    <th>prix</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                {% for product in products %}
+                <tr>
+                    
+                    <td>
+                        {{product.publihser.username}}
+                    </td>
+                    <td>
+                        {{product.name}}
+                    </td>
+                    <td>
+                        {{product.price}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="check" style="border:none;">
+
+          <p style="border-bottom: 1px black solid; width:50%;margin-top:20px;font-size:15px;margin-bottom:20px;margin-right:50px;">
+            total : <br>
+            tax :     <br>
+            final :   <br>
+            </p>
+        </div>
+        <div class="cond" style="margin-left: 8%;">
+            <p style="border:none;">Some Conditions</p>
+            <ul>
+                <li style="border:none;">cond 1</li>
+                <li style="border:none;">cond 2</li>
+                <li style="border:none;">cond 3</li>
+            </ul>
+        </div>
+        <div style=" margin-left: 60%;margin-top: 70px; border:none; text-align:right;font-size:15px;">
+            Merci pour votre achat<br> A la prochaine
+        </div>
+    </form>
+</body>
+
+</html>

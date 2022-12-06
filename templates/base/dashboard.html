@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>CLEX</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!--chart js cdm-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+
+<body>
+    < <!-- Topbar Start -->
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">C</span>Clex</h1>
+            </a>
+        </div>
+        <div class="col-lg-5 col-6 text-left">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+
+            <a href="#log">
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="one"><i class="fas fa-user-circle text-primary"></i></button></a>
+
+            <div id="id01" class="modal">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"> <i class="fa fa-times" ></i></button>
+                <form class="modal-content animate frm" action="/action_page.php" method="post">
+
+
+                    <div class="container">
+                        <h1 class="name">Welcome</h1>
+
+                        <ul>
+                            <li><i class="fas fa-user"></i><input type="text" id="user" placeholder="Username"></li>
+                            <li> <i class="fas fa-lock"></i><input type="password" placeholder="Password"></li>
+                            <li style="display: inline-flex;">
+                                <input type="checkbox" checked="checked" name="remember" style=" margin: auto;margin-inline: 10px;">
+                                <p style="margin: auto;"> Remember me</p>
+                            </li>
+                            <li>
+
+                                <button type="submit" id="login-button" style="border: 1px solid;
+                                    padding: 5px;">Login</button>
+
+
+                            </li>
+                            <li>
+                                <a href="{% url 'register' %}">
+                                    <h3>or create an account</h3><i class="fas fa-angle-double-right" style="transform: translate(7px, 21px);font-size: smaller;"></i></a>
+                            </li>
+                            <li><span class="psw">Forgot <a href="#">password?</a></span></li>
+                        </ul>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            
+
+            <a href="" class="btn border">
+                <i class="fas fa-arrow-circle-down text-primary"></i>
+            
+            </a>
+            <a href="" class="btn border">
+                <i class="fas fa-shopping-cart text-primary"></i>
+            
+            </a>
+            <a href="" class="btn border">
+                <i class="fas fa-heart text-primary"></i>
+            
+            </a>
+        </div>
+    </div>
+    <!-- Topbar End -->
+  <!-- chart-->
+<div style="display:flex;justify-content:space-between;">
+<div class=".col-md-8" style="width:300px;padding:30px;margin-left:40px;margin-top:200px">
+    <canvas id="myChart1" width="100" height="100"></canvas>
+    <br>
+    <h><center>Femme</h>
+<script>
+const ctx1 = document.getElementById('myChart1').getContext('2d');
+const myChart = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        
+        labels: ['{{robe}}','{{Tishrt}}','{{pontalon}}'],
+        datasets: [{
+            label: 'le nombre des produits',
+            data: [ '{{nbr_robe_femme}}','{{nbr_Tishrt_femme}}','{{nbr_pontalon_femme}}','{{nbr_veste_femme}}'],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+</div>
+<div class=".col-md-8" style="width:300px;padding:30px;margin-top:200px">
+    <canvas id="myChart2" width="100" height="100"></canvas>
+    <br>
+    <h><center>Homme</h>
+<script>
+const ctx2 = document.getElementById('myChart2').getContext('2d');
+const myChart2= new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        
+        labels: ['{{Tishrt}}','{{pontalon}}','{{veste}}'],
+        datasets: [{
+            label: 'le nombre des produits',
+            data: [ '{{nbr_robe_homme}}','{{nbr_Tishrt_homme}}','{{nbr_pontalon_homme}}','{{nbr_veste_homme}}'],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+</div>
+<div class=".col-md-8" style="width:300px;padding:30px;margin-right:50px;margin-top:200px" >
+    <canvas id="myChart3" width="100" height="100"></canvas>
+    <br>
+    <h><center>Enfant</h>
+<script>
+const ctx3 = document.getElementById('myChart3').getContext('2d');
+const myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        
+        labels: ['{{robe}}','{{Tishrt}}','{{pontalon}}','{{veste}}'],
+        datasets: [{
+            label: 'le nombre des produits',
+            data: [ '{{nbr_robe_enfant}}','{{nbr_Tishrt_enfant}}','{{nbr_pontalon_enfant}}','{{nbr_veste_enfant}}'],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h><center>le pourecentage des produits pour les trois category : </h>
+<br>
+<br>
+<div class=".col-md-8" style="width:400px">
+    <canvas id="myChart4" width="100" height="100"></canvas>
+    <br>
+<script>
+const ctx4 = document.getElementById('myChart4').getContext('2d');
+const myChart4= new Chart(ctx4, {
+    type: 'pie',
+    data: {
+        
+        labels: ['{{femme}}','{{homme}}','{{enfant}}'],
+        datasets: [{
+            label: 'le nombre des produits selon la category',
+            data: [ '{{nbr_femme}}','{{nbr_homme}}','{{nbr_enfant}}'],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    }
+});
+</script>
+</div>
+<!--chart end-->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-7 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a href="" class="text-decoration-none">
+                    <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">C</span>Clex</h1>
+                </a>
+                <p>CLEX est un site web créé en 2022 par un groupe d'étudiants de l'ESTIN, Notre site est à la fois économique, rentable ,écologique et bien sûr durable.
+                </p>
+                <p>
+                    CLEX a combiné ingéniosité, innovation et protection de l’environnement en offrant la possibilité de faire profiter d’autres personnes de nos nombreux vêtements qui prennent une grande place dans nos armoires sans pour autant les porter. Ainsi ...certaines
+                    pièces vintage ou pensés démodés. ..pourront faire le bonheur d’autres personnes en dénichant des perles rares . Notre site permet de mettre en vente tous les articles a un prix défiant toute concurrence.
+
+                </p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Amizour,Béjaia</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>CLEX@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+034 00 90 67</p>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="{% url 'Home' %}"><i class="fa fa-angle-right mr-2"></i>Acceuil</a>
+                            <a class="text-dark mb-2" href="{% url 'shop' %}"><i class="fa fa-angle-right mr-2"></i>Notre magasin</a>
+                            <a class="text-dark mb-2" href="{% url 'contact1' %}"><i class="fa fa-angle-right mr-2"></i>Nous contacter</a>
+                            <a class="text-dark mb-2" href="{% url 'cart_list' %}"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Clex</a>. All Rights Reserved. Designed by
+                    <a class="text-dark font-weight-semi-bold" href="">Clex's team</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+</body>
+
+</html>

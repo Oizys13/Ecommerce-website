@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>CLEX</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="cont">
+        <div class="cog-wheel1">
+            <div class="cog1">
+                <div class="top"></div>
+                <div class="down"></div>
+                <div class="left-top"></div>
+                <div class="left-down"></div>
+                <div class="right-top"></div>
+                <div class="right-down"></div>
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+
+        <div class="cog-wheel2">
+            <div class="cog2">
+                <div class="top"></div>
+                <div class="down"></div>
+                <div class="left-top"></div>
+                <div class="left-down"></div>
+                <div class="right-top"></div>
+                <div class="right-down"></div>
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <p class="wrong-para">Are you sure you want to delete this product</p>
+        
+    </div>
+    <a href="{% url 'Home' %}" class="p">>>Cancel</a>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" value="Delete" class="btn btn-outline-secondary"> Delete </button>
+    </form>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

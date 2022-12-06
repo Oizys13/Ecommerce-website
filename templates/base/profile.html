@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <title>Document</title>
+    <style>
+        nav ul {
+            display: inline-flex;
+            float: right;
+            list-style-type: none;
+            border-bottom: 1px solid black;
+            height: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-bottom: 10%;
+        }
+        
+        nav ul li {
+            margin-inline: 50px;
+            outline: none;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'admin_page' user.id %}">user's settings</a></li>
+            <li><a href="{% url 'dashboard' %}">dashboard</a></li>
+            <li><a href="">profile</a></li>
+        </ul>
+    </nav>
+
+    <!--account start-->
+
+
+    <div class="elements">
+
+        <div class="table">
+            <div class="elts">
+                <ul>
+                    <div class="photo"></div>
+                    <li>
+                        <button class="tablinks" onclick="openCity(event, 'sets')" id="defaultOpen">
+                        <a style="color:#D19C97"><i class="fa fa-user"></i>account settings</a>
+                        </button>
+                    </li>
+                    <li>
+
+                        <a href="index.html"><i class="fa fa-sign-out-alt"></i>log out</a>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div id="sets" class="tabcontent" style="padding-left: 10%;">
+                <h4>Account Details</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="{{user.first_name}}">
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="{{user.last_name}}">
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="{{user.username}}">
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="{{user.phone}}">
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="text" placeholder="{{user.email}}">
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="btn">Update Account</button>
+                        <br><br>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'password' %}">Change Password</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!--account end-->
+
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>

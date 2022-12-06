@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/0583d5f6a4.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        /* Set a style for all buttons */
+        
+        button {
+            background-color: transparent;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Extra styles for the cancel button */
+        
+        .cancelbtn {
+            width: 150%;
+            padding: unset;
+            transform: translate(-60px, 45px);
+        }
+        /* Center the image and position the close button */
+        
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+        
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        /* Modal Content/Box */
+        
+        .modal-content {
+            margin: auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            /* Could be more or less, depending on screen size */
+        }
+        /* The Close Button (x) */
+        
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+        /* Add Zoom Animation */
+        
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+        
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+        /* Change styles for span and cancel button on extra small screens */
+        
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgb(142 113 117 / 73%), rgba(142 113 117 / 73%)), url("nute.jpg");
+            background-size: cover;
+        }
+        
+        @font-face {
+            font-family: 'Montez';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/montez/v18/845ZNMk5GoGIX8lW07ra.ttf) format('truetype');
+        }
+        
+        @font-face {
+            font-family: 'Pompiere';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/pompiere/v13/VEMyRoxis5Dwuyeov5Wq7DQ.ttf) format('truetype');
+        }
+        
+        * {
+            box-sizing: content-box;
+            margin: 0;
+            font-weight: 300;
+            list-style-type: none;
+        }
+        
+        body {
+            font-family: 'Montez', sans-serif;
+            font-weight: 300;
+        }
+        
+        body ::-webkit-input-placeholder {
+            /* WebKit browsers */
+            font-family: 'Pompiere', sans-serif;
+            color: #fff;
+            font-weight: 300;
+            font-size: 20px;
+        }
+        
+        body :-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            font-family: 'Pompiere', sans-serif;
+            color: #fff;
+            opacity: 1;
+            font-weight: 300;
+        }
+        
+        body ::-moz-placeholder {
+            font-family: 'Pompiere', sans-serif;
+            color: #fff;
+            opacity: 1;
+            font-weight: 300;
+        }
+        
+        body :-ms-input-placeholder {
+            font-family: 'Pompiere', sans-serif;
+            color: #fff;
+            font-weight: 300;
+        }
+        
+        .container {
+            text-align: center;
+            height: 100%;
+            margin-top: 10%;
+        }
+        
+        .container h1 {
+            font-size: 55px;
+        }
+        
+        form {
+            width: fit-content;
+            margin-top: 30px;
+        }
+        
+        form input {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            background-color: transparent;
+            border: none;
+            text-align: center;
+            height: 30px;
+            border-bottom: 1px solid black;
+            border-radius: 25px;
+        }
+        
+        form button {
+            margin-bottom: 10px;
+            margin-top: 30px;
+            background-color: transparent;
+            width: 30%;
+            height: 40%;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        form input:focus {
+            border: none;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        form input:hover {
+            background-color: #fce4ea66;
+        }
+        
+        form button:hover {
+            background-color: #6d696a88;
+        }
+        
+        form h3 {
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: cornsilk;
+            text-align: center;
+            font-size: smaller;
+        }
+        
+        form li:nth-child(5) {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="one"></button>
+
+    <div id="id01" class="modal">
+        <a href="{% url 'Home' %}"> <button type="button" class="cancelbtn"> <i class="fa fa-times" ></i></button></a>
+        <form class="modal-content animate" method="post">
+            {% csrf_token %}
+
+            <div class="container">
+                <h1 class="name">Welcome</h1>
+
+                <ul>
+                    <li><i class="fas fa-user"></i><input type="text" id="user" name = 'username' placeholder="Username"></li>
+                    <li> <i class="fas fa-lock"></i><input type="password" name = 'password' placeholder="Password"></li>
+                    <li>
+                        <div>
+                            <button type="submit" id="login-button">Login</button>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{% url 'register' %}"><h3>or create an account</h3><i class="fas fa-angle-double-right" style="transform: translate(7px, 21px);font-size: smaller;"></i></li></a>
+                    </ul>
+                    
+                </div>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
+    </script>
+    <script>
+        document.getElementById("one").click();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+    body{
+    background-color:white;
+    }
+        #facture {
+            border: 2px solid black;
+            margin-inline: 15%;
+            padding: 10px;
+        }
+
+        .information {
+            display: grid;
+            justify-content: space-between;
+            width: 30%;
+            margin-bottom: 10px;
+            /* padding-left: 33px; */
+            /* text-align: center; */
+            justify-content: center;
+        }
+
+        .information p {
+            margin-bottom: 10px;
+        }
+
+        th {
+            justify-content: space-between;
+        }
+
+        table {
+            text-align: center;
+        }
+
+        #check {
+            border: 1px solid black;
+            width: 25%;
+            transform: translate(270%, 0%);
+            margin-bottom: 10px;
+        }
+
+        #check p {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        #check p:first-child {
+            border-bottom: 1px black solid;
+            margin-top: 4px;
+        }
+
+        #check p:nth-child(2) {
+            border-bottom: 1px black solid;
+        }
+
+        .cond {
+            margin-left: 8%;
+        }
+
+        .foot {
+            display: flex;
+            margin-left: 60%;
+            margin-top: 50px;
+        }
+
+        .foot p:first-child {
+            border-right: 1px solid black;
+            margin-right: 10px;
+        }
+
+        #infos {
+            margin-top: 30px;
+            display: flex;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="" />logo
+    <br>
+    <br>
+    <br>
+    <form action="" id="facture">
+        <center style="margin-top: 30px;">FACTURE</center>
+        <div id="infos">
+            <div class="information" style="font-size:12px ;margin-top:5px;">
+
+                <p>some random id</p>
+                <p>some random id</p>
+                <p>some random id</p>
+            </div>
+            <div class="information">
+
+                <p> some acheteur info</p>
+                <p> some acheteur info</p>
+                <p> some acheteur info</p>
+            </div>
+        </div>
+            <table class="table table-bordered " style="width: -webkit-fill-available;margin-inline: 7%;margin-top: 20px;display:inline-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>vendeur</th>
+                        <th>photo</th>
+                        <th>nom produit</th>
+                        <th>prix</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    <tr>
+                        {% for product in products %}
+                        <td>
+                            {{product.publihser}}
+                        </td>
+                        <td>
+                            <img src="" />
+                        </td>
+                        <td>
+                            {{product.name}}
+                        </td>
+                        <td>
+                            {{product.price}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+
+                </tbody>
+            </table>
+           
+        <div id="check">
+            <p> total : </p>
+            <p>tax : </p>
+            <p>final : </p>
+
+        </div>
+        <div class="cond">
+            <p>Some Conditions</p>
+            <ul>
+                <li>cond 1</li>
+                <li>cond 2</li>
+                <li>cond 3</li>
+            </ul>
+        </div>
+        <div class="foot">
+            <p>merci pour votre achat .<br>a la prochaine</p>
+            <p>info clex i dont know</p>
+        </div>
+
+        <center style="margin-top:50px;"><a class="btn btn-primary m-2" href="{% url 'createpdf' %}">create</a></center>
+    </form>
+</body>
+
+</html>

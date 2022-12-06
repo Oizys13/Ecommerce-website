@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>CLEX</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+   <!-- Topbar Start -->
+
+   <div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">C</span>Clex</h1>
+        </a>
+    </div>
+    <div class="col-lg-5 col-6 text-left">
+        <form action="">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for products">
+                <div class="input-group-append">
+                    <span class="input-group-text bg-transparent text-primary">
+                            <i class="fa fa-search"></i>
+                        </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-4 col-6 text-right">
+
+        <a href="">
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="one"><i class="fas fa-user-circle text-primary"></i></button></a>
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <a href="{% url 'sell' %}" class="btn border">
+            <i class="fas fa-arrow-circle-down text-primary"></i>
+        </a>
+        <a href="{% url 'cart_list' %}" class="btn border">
+            <i class="fas fa-shopping-cart text-primary"></i>
+        </a>
+        <a href="favori.html" class="btn border">
+            <i class="fas fa-heart text-primary"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Topbar End -->
+
+
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">My account</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="{% url 'Home' %}">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">My account</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!--account start-->
+
+
+    <div class="elements">
+
+        <div class="table">
+            <div class="elts">
+                <ul>
+
+
+                    <div class="photo"></div>
+
+
+                    <li>
+                        <div class="nav-item dropdown">
+
+
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-history" style="padding-left: 6px;"></i>Historique</a>
+
+                            <div class="dropdown-menu">
+                                <button class="tablinks" onclick="openCity(event, 'achat')">
+                                    <a class="dropdown-item"><i class="fa fa-shopping-bag" style="margin-left: 5px;"></i><p> commandé</p></a>
+                                </button>
+                                <button class="tablinks" onclick="openCity(event, 'vente')">
+                                    <a class="dropdown-item">vendu</a>
+                                </button>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="tablinks" onclick="openCity(event, 'aime')">
+                            <a style="color:#D19C97" ><img src="{% static 'wish-list.png' %}"  height="21px"
+                                width= "20px" style="margin-right: 5px;">liste de souhait</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="tablinks" onclick="openCity(event, 'sets')" id="defaultOpen">
+                            <a style="color:#D19C97"><i class="fa fa-user"></i>account settings</a>
+                            </button>
+                    </li>
+
+                    <li>
+
+                        <a href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i>log out</a>
+
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="achat" class="tabcontent">
+                <h3>Produits commandés</h3>
+                <!-- Cart Start -->
+                <div class="container-fluid pt-5" style="display: block;margin-right: auto;margin-left: auto;">
+                    <div class="row px-xl-5">
+                        <div class="col-lg-8 table-responsive mb-5">
+                            <table class="table table-bordered text-center mb-0">
+                                <thead class="bg-secondary text-dark">
+                                    <tr>
+                                        <th>Products</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="align-middle">
+                                    <tr>
+                                        <td class="align-middle"><img src="{% static 'img/product-1.jpg' %}" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                                        <td class="align-middle">$150</td>
+                                        <td class="align-middle">
+                                            <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">$150</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><img src="{% static 'img/product-2.jpg' %}" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                                        <td class="align-middle">$150</td>
+                                        <td class="align-middle">
+                                            <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">$150</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><img src="{% static 'img/product-3.jpg' %}" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                                        <td class="align-middle">$150</td>
+                                        <td class="align-middle">
+                                            <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">$150</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><img src="{% static 'img/product-4.jpg' %}" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                                        <td class="align-middle">$150</td>
+                                        <td class="align-middle">
+                                            <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">$150</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
+                                        <td class="align-middle">$150</td>
+                                        <td class="align-middle">
+                                            <div class="input-group quantity mx-auto" style="width: 100px;">
+
+                                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">$150</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Cart End -->
+            </div>
+            <div id="vente" class="tabcontent">
+                <h3>Produits vendus</h3>
+                <!-- Cart Start -->
+                <div class="container-fluid pt-5" style="display: block;margin-right: auto;margin-left: auto;">
+                    <div class="row px-xl-5">
+                        <div class="col-lg-8 table-responsive mb-5">
+                            <table class="table table-bordered text-center mb-0">
+                                <thead class="bg-secondary text-dark">
+                                    <tr>
+                                        <th>Products</th>
+                                        <th>Price</th>
+                                        <th>Category</th>
+                                        <th>Size</th>
+                                        <th>Sold</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="align-middle">
+                                    {% for product in products %}
+                                    <tr>
+                                        <td class="align-middle"><a href="{% url 'product' product.id %}">{{product.name}}</a></td>
+                                        <td class="align-middle">{{product.price}} DA</td>
+                                        <td class="align-middle">{{product.category}}</td>
+                                        <td class="align-middle">{{product.size}}</td>
+                                        {% if product.sold %}
+                                        <td class="align-middle">Sold</td>
+                                        {% else %}
+                                        <td class="align-middle">Not sold Yet</td>
+                                        {% endif %}
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Cart End -->
+            </div>
+            <div id="aime" class="tabcontent">
+                <p>wow</p>
+            </div>
+            <div id="sets" class="tabcontent" style="padding-left: 10%;">
+                <h4>Account Details</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">First name : </label>
+                            <input type="text" class="form-control" placeholder="{{user.first_name}}" name="firstname" >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Last name : </label>
+                            <input type="text" class="form-control" placeholder="{{user.last_name}}" name="lastname" >
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Username : </label>
+                            <input type="text" class="form-control" placeholder="{{user.username}}" name="username" >
+                            <small> Note : Username is not changeable</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Email : </label>
+                            <input type="text" class="form-control" placeholder="{{user.email}}" name="email" >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Phone : </label>
+                            <input type="text" class="form-control" placeholder="0{{user.phone}}" name="phone" >
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn">Update Account</button>
+                            <br><br>
+                        </div>
+                        
+                        <div class="col-md-12 text-center">
+                            <a href="{% url 'password' %}">Change Password</a>
+                        </div>
+                         
+                    </div>
+                    {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                </form>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!--account end-->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-9 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a href="" class="text-decoration-none">
+                    <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">C</span>Clex</h1>
+                </a>
+                <p>CLEX est un site web créé en 2022 par un groupe d'étudiants de l'ESTIN, Notre site est à la fois économique, rentable ,écologique et bien sûr durable.
+                </p>
+                <p>
+                    CLEX a combiné ingéniosité et protection de l’environnement en offrant la possibilité de faire profiter d’autres personnes de nos nombreux vêtements comme certaines pièces vintage qui pourront faire le bonheur d’autres personnes Notre site permet de mettre
+                    en vente tous les articles a un prix défiant toute concurrence.
+
+
+                </p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Amizour,Béjaia</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>CLEX@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+034 00 90 67</p>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-8">
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="{% url 'Home' %}"><i class="fa fa-angle-right mr-2"></i>Acceuil</a>
+                            <a class="text-dark mb-2" href="{% url 'shop' %}"><i class="fa fa-angle-right mr-2"></i>Notre magasin</a>
+                            <a class="text-dark mb-2" href="{% url 'contact1' %}"><i class="fa fa-angle-right mr-2"></i>Nous contacter</a>
+                            <a class="text-dark mb-2" href="{% url 'cart_list' %}"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Clex</a>. All Rights Reserved. Designed by
+                    <a class="text-dark font-weight-semi-bold" href="">Clex's team</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>

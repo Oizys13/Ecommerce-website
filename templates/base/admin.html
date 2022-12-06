@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        nav ul {
+            display: inline-flex;
+            float: right;
+            list-style-type: none;
+            border-bottom: 1px solid black;
+            height: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-bottom: 10%;
+        }
+        
+        nav ul li {
+            margin-inline: 50px;
+            outline: none;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .tabadjust {
+            display: grid;
+        }
+        
+        .tabitemadjust ul {
+            display: inline-flex;
+            list-style-type: none;
+            border-bottom: 1px black solid;
+        }
+        
+        .tabitemadjust ul li {
+            margin-inline: 20px;
+        }
+        
+        .but {
+            margin: 0;
+            margin-top: none;
+            margin-top: 0 importent!;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="">user's settings</a></li>
+            <li><a href="">dashboard</a></li>
+            <li><a href="">profile</a></li>
+        </ul>
+    </nav>
+    <!--account start-->
+
+
+    <div class="elements">
+
+        <div class="table">
+            <div class="elts">
+                <ul>
+                    <li>
+                        <button class="tablinks" onclick="openCity(event, 'aime')" id="defaultOpen">
+                            <a style="color:#D19C97" >users accounts</a>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="tablinks" onclick="openCity(event, 'sets')">
+                            <a style="color:#D19C97">products list</a>
+                            </button>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div id="aime" class="tabcontent" style="padding-left: 10%;">
+                <div class="tabadjust">
+                    <div class="tabitemadjust">
+                        <ul>
+                            <li style="margin-top: 20px;">user id</li>
+                            <li style="margin-top: 20px;">user name</li>
+                            <li style="margin-top: 20px;">user email</li>
+                            <li style="margin-top: 20px;"><a href=""><i class="fa fa-trash"></i></a></li>
+                            
+
+                        </ul>
+                    </div>
+                    {% for user in users %}
+                    <div class="tabitemadjust">
+                        <ul>
+                            <li style="margin-top: 20px;">{{user.id}}</li>
+                            <li style="margin-top: 20px;">{{user.username}}</li>
+                            <li style="margin-top: 20px;">{{user.email}}</li>
+                            <li style="margin-top: 20px;"><a href=""><i class="fa fa-trash"></i></a></li>
+                            
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="sets" class="tabcontent" style="padding-left: 10%;">
+                <div class="tabadjust">
+
+                    <div class="tabitemadjust">
+                        <ul>
+                            <li style="margin-top: 20px;">photo</li>
+                            <li style="margin-top: 20px;">product name</li>
+                            <li style="margin-top: 20px;">prix</li>
+                            <li><button class="but">valider</button></li>
+                            <li style="margin-top: 20px;"><a href=""><i class="fa fa-trash"></i></a></li>
+                        </ul>
+
+                    </div>
+                    <form method='POST'>
+                    {% for product in products %}
+                    {% if not product.is_validated %}
+                    <div class="tabitemadjust">
+                        <ul>
+                            {% csrf_token %}    
+                            <li style="margin-top: 20px;">photo</li>
+                            <li style="margin-top: 20px;">{{product.name}}</li>
+                            <li style="margin-top: 20px;">{{product.price}}</li>
+                            <input type="checkbox" name="is_validated">
+                            <li style="margin-top: 20px;"><a href=""><i class="fa fa-trash"></i></a></li>
+                        </ul>
+                        {% endif %}
+                        {% endfor %}
+                        <button class="but">valider</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!--account end-->
+
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>
